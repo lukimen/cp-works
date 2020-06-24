@@ -1,5 +1,7 @@
 package com.cpworks.libraries;
 
+import com.fasterxml.classmate.TypeResolver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -14,6 +16,13 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
+	private TypeResolver resolver;
+
+	@Autowired
+	public void setResolver(TypeResolver resolver) {
+		this.resolver = resolver;
+	}
 
 	@Bean
 	public Docket init() {
