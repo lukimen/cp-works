@@ -34,4 +34,18 @@ public class AccountController {
 				.build();
 	}
 
+	@ApiOperation(value = "login", notes = "login account")
+	@GetMapping("/login")
+	public BaseResponse<Boolean> login(
+			@RequestParam(required = true) String email,
+			@RequestParam(required = true) String password) {
+
+		boolean userExist = accountDaoService.login(email, password);
+
+		return BaseResponse.<Boolean>builder()
+				.code(ResponseCode.SUCCESS.getCode())
+				.data(userExist)
+				.build();
+	}
+
 }

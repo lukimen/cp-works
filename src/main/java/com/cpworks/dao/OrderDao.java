@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Builder
@@ -15,7 +16,7 @@ public class OrderDao implements Serializable {
   @Field("_id")
   private String id;
   private String placeId;
-  private String tglAwalSewa;
+  private Date tanggalAwalSewa;
   private int durasiSewa;
   private String email;
   private double totalBayar;

@@ -12,10 +12,25 @@ public class AccountDaoService {
 
   public void register(String email, String pasword) {
 
+    //buat object account
     AccountDao accountDao = AccountDao.builder()
         .email(email)
         .password(pasword)
         .build();
     accountDaoRepository.save(accountDao);
+  }
+
+  public boolean login(String email, String pasword) {
+
+    //cari pake email & password
+    AccountDao accountDao =
+        accountDaoRepository.findByEmailAndPasswordAndIsDeleted(email, pasword, 0);
+
+    if (accountDao == null){
+      return false; //kalo null user ga ada balikin false
+    }
+
+    //user ada balikin true
+    return true;
   }
 }

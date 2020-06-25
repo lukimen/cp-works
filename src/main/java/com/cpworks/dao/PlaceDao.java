@@ -22,5 +22,6 @@ public class PlaceDao implements Serializable {
   private String address;
   private String address2;
   private String durasi;
+  private String image;
   private int isDeleted;
 }

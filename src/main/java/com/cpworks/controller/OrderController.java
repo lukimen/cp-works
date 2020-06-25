@@ -35,4 +35,22 @@ public class OrderController {
 				.build();
 	}
 
+	@ApiOperation(value = "Pesan", notes = "pesan office/meeting")
+	@GetMapping("/pesan")
+	public BaseResponse<Boolean> pesan(
+			@RequestParam(required = true) String placeId,
+			@RequestParam(required = true) String tanggalAwalSewa,
+			@RequestParam(required = true) String email,
+			@RequestParam(required = true) int durasiSewa,
+			@RequestParam(required = true) double totalBayar) {
+
+		boolean pesanBerhasil = orderDaoService.pesan(
+				placeId, tanggalAwalSewa, email, durasiSewa, totalBayar);
+
+		return BaseResponse.<Boolean>builder()
+				.code(ResponseCode.SUCCESS.getCode())
+				.data(pesanBerhasil)
+				.build();
+	}
+
 }
