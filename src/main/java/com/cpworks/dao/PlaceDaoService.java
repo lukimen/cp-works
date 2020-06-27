@@ -18,7 +18,7 @@ public class PlaceDaoService {
   public List<PlaceDao> findByType(String placeType) {
     return placeDaoRepository.findByPlaceTypeAndIsDeleted(placeType, 0) //query pake type
         .stream()
-        .filter(orderDao -> Objects.isNull(orderDao.getName())) //filter kalo data ga ada
+        .filter(orderDao -> Objects.nonNull(orderDao.getName())) //filter kalo data ga ada
         .collect(Collectors.toList()); //balikin list hasil
   }
 

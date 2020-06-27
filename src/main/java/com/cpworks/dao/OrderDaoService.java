@@ -18,7 +18,7 @@ public class OrderDaoService {
  
     return orderDaoRepository.findByEmailAndIsDeleted(email, 0) //query pake email
         .stream()
-        .filter(orderDao -> Objects.isNull(orderDao.getEmail())) //filter kalo data ga ada
+        .filter(orderDao -> Objects.nonNull(orderDao.getEmail())) //filter kalo data ga ada
         .collect(Collectors.toList()); //balikin list hasil
   }
 
