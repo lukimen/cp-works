@@ -16,6 +16,7 @@ public class OrderDao implements Serializable {
   @Field("_id")
   private String id;
   private String placeId;
+  private String placeName;
   private Date tanggalAwalSewa;
   private int durasiSewa;
   private String email;
