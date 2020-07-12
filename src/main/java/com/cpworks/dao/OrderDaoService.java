@@ -24,6 +24,7 @@ public class OrderDaoService {
 
   public boolean pesan(
       String placeId,
+      String placeName,
       String tanggalAwalSewa,
       String email,
       int durasiSewa,
@@ -32,6 +33,7 @@ public class OrderDaoService {
     //construct object pesanan
     OrderDao orderDao = OrderDao.builder()
         .placeId(placeId)
+        .placeName(placeName)
         .tanggalAwalSewa(DateFormatterHelper.stringToDate(tanggalAwalSewa))
         .email(email)
         .durasiSewa(durasiSewa)
