@@ -29,6 +29,7 @@ public class PlaceDaoService {
       String address2,
       String image,
       String durasi,
+      String ukuran,
       double price,
       double latitude,
       double longitude) {
@@ -43,6 +44,7 @@ public class PlaceDaoService {
         .price(price)
         .latitude(latitude)
         .longitude(longitude)
+        .ukuran(ukuran)
         .build();
 
     placeDaoRepository.save(placeDao);

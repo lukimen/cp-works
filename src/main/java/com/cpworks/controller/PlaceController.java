@@ -45,12 +45,13 @@ public class PlaceController {
 			@RequestParam(required = true) String address2,
 			@RequestParam(required = false) String image,
 			@RequestParam(required = true) String durasi,
+			@RequestParam(required = true) String ukuran,
 			@RequestParam(required = true) double price,
 			@RequestParam(required = true) double latitude,
 			@RequestParam(required = true) double longitude) {
 
 		boolean result = placeDaoService.addPlace(
-				placeType, name, address, address2, image, durasi, price, latitude, longitude);
+				placeType, name, address, address2, image, durasi, ukuran, price, latitude, longitude);
 
 		return BaseResponse.<Boolean>builder()
 				.code(ResponseCode.SUCCESS.getCode())
